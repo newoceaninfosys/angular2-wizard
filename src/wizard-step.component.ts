@@ -10,30 +10,39 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   `
 })
 export class WizardStepComponent implements OnInit {
-  @Input() title: string;
-  @Input() hidden: boolean = false;
-  @Input() isValid: boolean = true;
-  @Input() showNext: boolean = true;
-  @Input() showPrev: boolean = true;
+  @Input()
+  public title: string;
+  @Input()
+  public hidden: boolean = false;
+  @Input()
+  public isValid: boolean = true;
+  @Input()
+  public showNext: boolean = true;
+  @Input()
+  public showPrev: boolean = true;
 
-  @Output() onNext: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onPrev: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onComplete: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  public onNext: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  public onPrev: EventEmitter<any> = new EventEmitter<any>();
+  @Output()
+  public onComplete: EventEmitter<any> = new EventEmitter<any>();
 
   private _isActive: boolean = false;
-  isDisabled: boolean = true;
+  public isDisabled: boolean = true;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  @Input('isActive') set isActive(isActive: boolean) {
+  @Input('isActive')
+  public set isActive(isActive: boolean) {
     this._isActive = isActive;
     this.isDisabled = false;
   }
 
-  get isActive(): boolean {
+  public get isActive(): boolean {
     return this._isActive;
   }
 
